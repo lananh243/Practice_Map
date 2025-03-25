@@ -47,6 +47,16 @@ public class Student {
         this.average = average;
     }
 
+    public void inputData(Scanner scanner) {
+        System.out.print("Nhập vào mã sinh viên: ");
+        this.studentId = scanner.next();
+        System.out.print("Nhập vào tên sinh viên: ");
+        this.studentName = scanner.next();
+        System.out.print("Nhập vào tuổi sinh viên: ");
+        this.age = scanner.nextInt();
+        System.out.print("Nhập vào điểm trung bình: ");
+        this.average = scanner.nextFloat();
+    }
 
     @Override
     public String toString() {

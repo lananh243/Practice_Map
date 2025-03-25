@@ -59,23 +59,11 @@ public class StudentManager {
         System.out.println("Nhập số lượng sinh viên cần thêm: ");
         int n = scanner.nextInt();
 
-        String studentId = null;
-        String studentName = null;
-        int age = 0;
-        float average = 0;
         for (int i = 0; i < n; i++) {
-            System.out.print("Nhập vào mã sinh viên: ");
-            studentId = scanner.next();
-            System.out.print("Nhập vào tên sinh viên: ");
-            studentName = scanner.next();
-            System.out.print("Nhập vào tuổi sinh viên: ");
-            age = scanner.nextInt();
-            scanner.nextLine();
-            System.out.print("Nhập vào điểm trung bình: ");
-            average = scanner.nextFloat();
-            scanner.nextLine();
+            Student student = new Student("", "", 0, 0);
+            student.inputData(scanner);
+            students.put(student.getStudentId(), student);
         }
-        students.put(studentId, new Student(studentId, studentName, age, average));
     }
 
     public static void deleteStudent(Scanner scanner) {
@@ -94,7 +82,8 @@ public class StudentManager {
         for (Student student : students.values()) {
             totalScore += student.getAverage();
         }
-        System.out.println("Điểm trung bình của tất cả sinh viên: " + totalScore);
+        float average = totalScore / students.size();
+        System.out.println("Điểm trung bình của tất cả sinh viên: " + average);
     }
 
 
